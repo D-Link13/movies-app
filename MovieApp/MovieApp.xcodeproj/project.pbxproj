@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		900846E42C7724C6002DDD6D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 900846E32C7724C6002DDD6D /* README.md */; };
+		900847802C77CE69002DDD6D /* MoviesList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9008477F2C77CE69002DDD6D /* MoviesList.framework */; };
+		900847812C77CE69002DDD6D /* MoviesList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9008477F2C77CE69002DDD6D /* MoviesList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9CA3F8812C3D9B5E0003776D /* MovieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3F8802C3D9B5E0003776D /* MovieApp.swift */; };
 		9CA3F8832C3D9B5E0003776D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3F8822C3D9B5E0003776D /* ContentView.swift */; };
 		9CA3F8852C3D9B600003776D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CA3F8842C3D9B600003776D /* Assets.xcassets */; };
@@ -37,8 +39,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		900847822C77CE69002DDD6D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				900847812C77CE69002DDD6D /* MoviesList.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		900846E32C7724C6002DDD6D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9008477F2C77CE69002DDD6D /* MoviesList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MoviesList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA3F87D2C3D9B5E0003776D /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA3F8802C3D9B5E0003776D /* MovieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApp.swift; sourceTree = "<group>"; };
 		9CA3F8822C3D9B5E0003776D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900847802C77CE69002DDD6D /* MoviesList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9008477E2C77CE69002DDD6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9008477F2C77CE69002DDD6D /* MoviesList.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9CA3F8742C3D9B5E0003776D = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +114,7 @@
 				9CA3F8912C3D9B600003776D /* MovieAppTests */,
 				9CA3F89B2C3D9B600003776D /* MovieAppUITests */,
 				9CA3F87E2C3D9B5E0003776D /* Products */,
+				9008477E2C77CE69002DDD6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,6 +194,7 @@
 				9CA3F8792C3D9B5E0003776D /* Sources */,
 				9CA3F87A2C3D9B5E0003776D /* Frameworks */,
 				9CA3F87B2C3D9B5E0003776D /* Resources */,
+				900847822C77CE69002DDD6D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -525,13 +553,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iosinterview.InterviewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -547,13 +576,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iosinterview.InterviewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -568,13 +598,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iosinterview.InterviewUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -589,13 +620,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iosinterview.InterviewUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
