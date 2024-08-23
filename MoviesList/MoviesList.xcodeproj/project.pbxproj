@@ -58,6 +58,9 @@
 		900847A22C78CEC4002DDD6D /* XCTestCase+MemoryLeaksTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeaksTracking.swift"; sourceTree = "<group>"; };
 		900847A82C78D2D3002DDD6D /* MoviesAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		900847AA2C78D2D3002DDD6D /* MoviesAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPIEndToEndTests.swift; sourceTree = "<group>"; };
+		900847B42C78DCC4002DDD6D /* CI_macOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_macOS.xctestplan; sourceTree = "<group>"; };
+		900847B52C78DD51002DDD6D /* MoviesList.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MoviesList.xctestplan; sourceTree = "<group>"; };
+		900847B62C78DE09002DDD6D /* MoviesAPIEndToEndTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MoviesAPIEndToEndTests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,9 @@
 		900847582C77CD9F002DDD6D = {
 			isa = PBXGroup;
 			children = (
+				900847B62C78DE09002DDD6D /* MoviesAPIEndToEndTests.xctestplan */,
+				900847B52C78DD51002DDD6D /* MoviesList.xctestplan */,
+				900847B42C78DCC4002DDD6D /* CI_macOS.xctestplan */,
 				900847642C77CD9F002DDD6D /* MoviesList */,
 				9008476E2C77CDA0002DDD6D /* MoviesListTests */,
 				900847A92C78D2D3002DDD6D /* MoviesAPIEndToEndTests */,

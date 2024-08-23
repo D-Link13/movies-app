@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "D2140434-A4D6-4BFF-AE42-05635871DBF9",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MoviesList.xcodeproj",
+        "identifier" : "900847A72C78D2D3002DDD6D",
+        "name" : "MoviesAPIEndToEndTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MoviesList.xcodeproj",
+        "identifier" : "900847692C77CDA0002DDD6D",
+        "name" : "MoviesListTests"
+      }
+    }
+  ],
+  "version" : 1
+}

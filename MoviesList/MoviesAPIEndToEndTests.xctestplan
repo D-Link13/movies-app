@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "07814B97-159F-4837-8190-E83F64C30328",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MoviesList.xcodeproj",
+        "identifier" : "900847A72C78D2D3002DDD6D",
+        "name" : "MoviesAPIEndToEndTests"
+      }
+    }
+  ],
+  "version" : 1
+}

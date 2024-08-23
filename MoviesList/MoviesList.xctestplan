@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "57C70CD0-87F3-4518-B370-47FB83120035",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MoviesList.xcodeproj",
+        "identifier" : "900847692C77CDA0002DDD6D",
+        "name" : "MoviesListTests"
+      }
+    }
+  ],
+  "version" : 1
+}
