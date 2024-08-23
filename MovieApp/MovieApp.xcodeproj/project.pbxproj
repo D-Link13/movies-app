@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		900846E42C7724C6002DDD6D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 900846E32C7724C6002DDD6D /* README.md */; };
 		900847802C77CE69002DDD6D /* MoviesList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9008477F2C77CE69002DDD6D /* MoviesList.framework */; };
 		900847812C77CE69002DDD6D /* MoviesList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9008477F2C77CE69002DDD6D /* MoviesList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9CA3F8812C3D9B5E0003776D /* MovieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3F8802C3D9B5E0003776D /* MovieApp.swift */; };
@@ -54,7 +53,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		900846E32C7724C6002DDD6D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9008477F2C77CE69002DDD6D /* MoviesList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MoviesList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA3F87D2C3D9B5E0003776D /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA3F8802C3D9B5E0003776D /* MovieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApp.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 		9CA3F8742C3D9B5E0003776D = {
 			isa = PBXGroup;
 			children = (
-				900846E32C7724C6002DDD6D /* README.md */,
 				9CA3F87F2C3D9B5E0003776D /* MovieApp */,
 				9CA3F8912C3D9B600003776D /* MovieAppTests */,
 				9CA3F89B2C3D9B600003776D /* MovieAppUITests */,
@@ -289,7 +286,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				900846E42C7724C6002DDD6D /* README.md in Resources */,
 				9CA3F8892C3D9B600003776D /* Preview Assets.xcassets in Resources */,
 				9CA3F8852C3D9B600003776D /* Assets.xcassets in Resources */,
 			);
