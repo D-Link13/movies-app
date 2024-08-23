@@ -11,6 +11,9 @@
 		900847712C77CDA0002DDD6D /* MoviesList.h in Headers */ = {isa = PBXBuildFile; fileRef = 900847652C77CD9F002DDD6D /* MoviesList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9008477B2C77CE13002DDD6D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008477A2C77CE13002DDD6D /* Category.swift */; };
 		9008477D2C77CE2A002DDD6D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008477C2C77CE2A002DDD6D /* Movie.swift */; };
+		900847912C78C995002DDD6D /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900847902C78C995002DDD6D /* SharedTestHelpers.swift */; };
+		900847932C78C9D9002DDD6D /* MoviesListMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900847922C78C9D9002DDD6D /* MoviesListMapperTests.swift */; };
+		900847952C78CA01002DDD6D /* MoviesListMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900847942C78CA01002DDD6D /* MoviesListMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		9008476A2C77CDA0002DDD6D /* MoviesListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9008477A2C77CE13002DDD6D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9008477C2C77CE2A002DDD6D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		900847902C78C995002DDD6D /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
+		900847922C78C9D9002DDD6D /* MoviesListMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListMapperTests.swift; sourceTree = "<group>"; };
+		900847942C78CA01002DDD6D /* MoviesListMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 			children = (
 				900847652C77CD9F002DDD6D /* MoviesList.h */,
 				900847832C77CEAC002DDD6D /* Domain */,
+				9008478D2C78C95F002DDD6D /* Movies API */,
 			);
 			path = MoviesList;
 			sourceTree = "<group>";
@@ -80,6 +87,8 @@
 		9008476E2C77CDA0002DDD6D /* MoviesListTests */ = {
 			isa = PBXGroup;
 			children = (
+				9008478F2C78C975002DDD6D /* Helpers */,
+				9008478E2C78C96F002DDD6D /* Movies API */,
 			);
 			path = MoviesListTests;
 			sourceTree = "<group>";
@@ -91,6 +100,30 @@
 				9008477C2C77CE2A002DDD6D /* Movie.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		9008478D2C78C95F002DDD6D /* Movies API */ = {
+			isa = PBXGroup;
+			children = (
+				900847942C78CA01002DDD6D /* MoviesListMapper.swift */,
+			);
+			path = "Movies API";
+			sourceTree = "<group>";
+		};
+		9008478E2C78C96F002DDD6D /* Movies API */ = {
+			isa = PBXGroup;
+			children = (
+				900847922C78C9D9002DDD6D /* MoviesListMapperTests.swift */,
+			);
+			path = "Movies API";
+			sourceTree = "<group>";
+		};
+		9008478F2C78C975002DDD6D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				900847902C78C995002DDD6D /* SharedTestHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +192,7 @@
 					};
 					900847692C77CDA0002DDD6D = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -205,6 +239,7 @@
 			files = (
 				9008477D2C77CE2A002DDD6D /* Movie.swift in Sources */,
 				9008477B2C77CE13002DDD6D /* Category.swift in Sources */,
+				900847952C78CA01002DDD6D /* MoviesListMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +247,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900847912C78C995002DDD6D /* SharedTestHelpers.swift in Sources */,
+				900847932C78C9D9002DDD6D /* MoviesListMapperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +473,7 @@
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 35SF9B6Y3C;
@@ -448,6 +486,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -458,6 +497,7 @@
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 35SF9B6Y3C;
