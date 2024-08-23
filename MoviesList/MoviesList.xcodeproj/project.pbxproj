@@ -14,6 +14,7 @@
 		900847912C78C995002DDD6D /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900847902C78C995002DDD6D /* SharedTestHelpers.swift */; };
 		900847932C78C9D9002DDD6D /* MoviesListMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900847922C78C9D9002DDD6D /* MoviesListMapperTests.swift */; };
 		900847952C78CA01002DDD6D /* MoviesListMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900847942C78CA01002DDD6D /* MoviesListMapper.swift */; };
+		9008479E2C78CD0A002DDD6D /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008479D2C78CD0A002DDD6D /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		900847902C78C995002DDD6D /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		900847922C78C9D9002DDD6D /* MoviesListMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListMapperTests.swift; sourceTree = "<group>"; };
 		900847942C78CA01002DDD6D /* MoviesListMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListMapper.swift; sourceTree = "<group>"; };
+		9008479D2C78CD0A002DDD6D /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				900847652C77CD9F002DDD6D /* MoviesList.h */,
 				900847832C77CEAC002DDD6D /* Domain */,
+				9008479C2C78CCF9002DDD6D /* Shared API */,
 				9008478D2C78C95F002DDD6D /* Movies API */,
 			);
 			path = MoviesList;
@@ -124,6 +127,14 @@
 				900847902C78C995002DDD6D /* SharedTestHelpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9008479C2C78CCF9002DDD6D /* Shared API */ = {
+			isa = PBXGroup;
+			children = (
+				9008479D2C78CD0A002DDD6D /* HTTPClient.swift */,
+			);
+			path = "Shared API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +250,7 @@
 			files = (
 				9008477D2C77CE2A002DDD6D /* Movie.swift in Sources */,
 				9008477B2C77CE13002DDD6D /* Category.swift in Sources */,
+				9008479E2C78CD0A002DDD6D /* HTTPClient.swift in Sources */,
 				900847952C78CA01002DDD6D /* MoviesListMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
