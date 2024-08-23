@@ -8,6 +8,10 @@ func anyURL() -> URL {
     URL(string: "http://any-url.com")!
 }
 
+func anyURLRequest() -> URLRequest {
+    URLRequest(url: anyURL())
+}
+
 func anyData() -> Data {
     Data("any data".utf8)
 }
