@@ -56,7 +56,7 @@ final class MoviesAPIEndToEndTests: XCTestCase {
     }
     
     private var moviesTestServerURL: URL {
-        return URL(string: "https://api.themoviedb.org/3/movie/now_playing")!
+        return URL(string: "https://api.themoviedb.org/3/movie/top_rated")!
     }
     
     private func ephemeralClient(file: StaticString = #file, line: UInt = #line) -> HTTPClient {
@@ -73,40 +73,40 @@ final class MoviesAPIEndToEndTests: XCTestCase {
     
     private func title(at index: Int) -> String {
         return [
-            "Deadpool & Wolverine",
-            "Inside Out 2",
-            "Twisters",
-            "Despicable Me 4",
-            "Alien: Romulus",
-            "Kill",
-            "It Ends with Us",
-            "Saving Bikini Bottom: The Sandy Cheeks Movie"
+            "The Shawshank Redemption",
+            "The Godfather",
+            "The Godfather Part II",
+            "Schindler's List",
+            "12 Angry Men",
+            "Spirited Away",
+            "Dilwale Dulhania Le Jayenge",
+            "The Dark Knight"
         ][index]
     }
     
     private func releaseDate(at index: Int) -> Date {
         return [
-            Date(timeIntervalSince1970: 1706047200),
-            Date(timeIntervalSince1970: 1704924000),
-            Date(timeIntervalSince1970: 1704837600),
-            Date(timeIntervalSince1970: 1705701600),
-            Date(timeIntervalSince1970: 1705096800),
-            Date(timeIntervalSince1970: 1704232800),
-            Date(timeIntervalSince1970: 1704578400),
-            Date(timeIntervalSince1970: 1704060000)
+            Date(timeIntervalSince1970: 759276000),
+            Date(timeIntervalSince1970: 64184400),
+            Date(timeIntervalSince1970: 127861200),
+            Date(timeIntervalSince1970: 727048800),
+            Date(timeIntervalSince1970: -409460400),
+            Date(timeIntervalSince1970: 979941600),
+            Date(timeIntervalSince1970: 790552800),
+            Date(timeIntervalSince1970: 1200434400)
         ][index]
     }
     
     private func imageURL(at index: Int) -> URL {
         let paths = [
-            "/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
-            "/dbhN0rEVTefOOgtuqEQwp4tXr0X.jpg",
-            "/pjnD08FlMAIXsfOLKQbvmO0f0MD.jpg",
-            "/wWba3TaojhK7NdycRhoQpsG0FaH.jpg",
-            "/b33nnKl1GSFbao4l3fZDDqsMx0F.jpg",
-            "/m2zXTuNPkywdYLyWlVyJZW2QOJH.jpg",
-            "/AjV6jFJ2YFIluYo4GQf13AA1tqu.jpg",
-            "/30YnfZdMNIV7noWLdvmcJS0cbnQ.jpg"
+            "/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",
+            "/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+            "/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg",
+            "/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
+            "/ow3wq89wM8qd5X7hWKxiRfsFf9C.jpg",
+            "/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
+            "/lfRkUr7DYdHldAqi3PwdQGBRBPM.jpg",
+            "/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
         ]
         return URL(string: "https://image.tmdb.org/t/p/w185/")!.appendingPathComponent(paths[index])
     }
