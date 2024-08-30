@@ -34,12 +34,14 @@ final class MoviesListMapperTests: XCTestCase {
         let item1 = makeMovieListItem(
             title: "title",
             releaseDate: (Date(timeIntervalSince1970: 1706047200), "2024-07-24"),
-            posterPath: "/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg"
+            posterPath: "/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+            overview: "overview1"
         )
         let item2 = makeMovieListItem(
             title: "a long long title",
             releaseDate: (Date(timeIntervalSince1970: 1704924000), "2024-06-11"),
-            posterPath: "/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg"
+            posterPath: "/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg",
+            overview: "overview2"
         )
         let json = makeItemsJSON([item1.json, item2.json])
         
@@ -53,16 +55,19 @@ final class MoviesListMapperTests: XCTestCase {
     private func makeMovieListItem(
         title: String,
         releaseDate: (date: Date, dateString: String),
-        posterPath: String) -> (model: Movie, json: [String: Any]) {
+        posterPath: String,
+        overview: String) -> (model: Movie, json: [String: Any]) {
             let model = Movie(
                 title: title,
                 releaseDate: releaseDate.date,
-                imageURL: MoviesListMapper.baseURL.appendingPathComponent(posterPath)
+                imageURL: MoviesListMapper.baseURL.appendingPathComponent(posterPath),
+                overview: overview
             )
             let json: [String: Any] = [
                 "title": model.title,
                 "release_date": releaseDate.dateString,
-                "poster_path": posterPath
+                "poster_path": posterPath,
+                "overview": overview
             ]
             return (model, json)
         }

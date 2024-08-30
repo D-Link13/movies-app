@@ -13,11 +13,13 @@ public final class MoviesListMapper {
                 case title
                 case releaseDate = "release_date"
                 case posterPath = "poster_path"
+                case overview
             }
             
             let title: String
             let releaseDate: Date
             let posterPath: String
+            let overview: String
             
             var imageURL: URL { MoviesListMapper.baseURL.appendingPathComponent(posterPath) }
         }
@@ -27,7 +29,8 @@ public final class MoviesListMapper {
                 Movie(
                     title: $0.title,
                     releaseDate: $0.releaseDate,
-                    imageURL: $0.imageURL)
+                    imageURL: $0.imageURL,
+                    overview: $0.overview)
             }
         }
     }
