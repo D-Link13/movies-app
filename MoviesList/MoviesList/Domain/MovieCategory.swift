@@ -1,5 +1,5 @@
 import Foundation
 
-public enum Category {
+public enum MovieCategory {
     case nowPlaying, popular, topRated, upcoming
 }
