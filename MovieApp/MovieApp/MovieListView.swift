@@ -3,17 +3,15 @@ import Combine
 
 struct MovieListView: View {
     @ObservedObject var viewModel: MoviesListViewModel
+    var onSelect: ((MovieViewData) -> Void)?
     
     var body: some View {
-        NavigationView {
-            List(viewModel.movies) { movie in
+        List(viewModel.movies) { movie in
+            Button(action: {
+                onSelect?(movie)
+            }) {
                 MovieListCell(movie: movie)
-                    .background(
-                        NavigationLink("", destination: MovieDetailsView(overview: movie.overview)).opacity(0)
-                    )
             }
-            .navigationTitle(viewModel.navigationTitle)
-            .navigationBarTitleDisplayMode(.inline)
         }
         .listStyle(.plain)
         .onAppear {
@@ -27,5 +25,5 @@ struct MovieListView: View {
 }
 
 #Preview {
-    MovieListView(viewModel: MoviesListViewModel(category: .nowPlaying, moviesLoader: Just([]).setFailureType(to: Error.self).eraseToAnyPublisher()))
+    MovieListView(viewModel: MoviesListViewModel(moviesLoader: Just([]).setFailureType(to: Error.self).eraseToAnyPublisher()), onSelect: { _ in })
 }

@@ -5,12 +5,10 @@ import Combine
 final class MoviesListViewModel: ObservableObject {
     @Published private var moviesData = [Movie]()
     
-    private let category: MoviesList.MovieCategory
     private let moviesLoader: AnyPublisher<[Movie], Error>
     private var cancellables = Set<AnyCancellable>()
     
-    init(category: MoviesList.MovieCategory, moviesLoader: AnyPublisher<[Movie], Error>) {
-        self.category = category
+    init(moviesLoader: AnyPublisher<[Movie], Error>) {
         self.moviesLoader = moviesLoader
     }
     
@@ -29,23 +27,6 @@ final class MoviesListViewModel: ObservableObject {
                           releaseDate: $0.releaseDate,
                           imageURL: $0.imageURL,
                           overview: $0.overview)
-        }
-    }
-    
-    var navigationTitle: String {
-        category.title.capitalized
-    }
-}
-
-extension MoviesList.MovieCategory {
-    
-    var title: String {
-        switch self {
-        case .nowPlaying: return "now playing"
-        case .topRated: return "top rated"
-        case .popular: return "popular"
-        case .upcoming: return "upcoming"
-        @unknown default: return "unknown"
         }
     }
 }
