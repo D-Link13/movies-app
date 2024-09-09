@@ -1,24 +1,32 @@
 import SwiftUI
 import MoviesList
-import Combine
+
+public protocol MovieListLoader {
+    typealias Result = Swift.Result<[Movie], Error>
+    
+    func loadMovies(completion: @escaping (Result) -> Void)
+}
 
 final class MoviesListViewModel: ObservableObject {
     @Published private var moviesData = [Movie]()
     
-    private let moviesLoader: AnyPublisher<[Movie], Error>
-    private var cancellables = Set<AnyCancellable>()
+    private let category: MoviesList.MovieCategory
+    private let moviesLoader: MovieListLoader
     
-    init(moviesLoader: AnyPublisher<[Movie], Error>) {
+    init(category: MoviesList.MovieCategory, moviesLoader: MovieListLoader) {
+        self.category = category
         self.moviesLoader = moviesLoader
     }
     
     func loadMovies() {
-        moviesLoader
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { _ in }) { [weak self] movies in
-                self?.moviesData = movies
+        moviesLoader.loadMovies { result in
+            switch result {
+            case let .success(movies):
+                self.moviesData = movies
+            case let .failure(error):
+                break
             }
-            .store(in: &cancellables)
+        }
     }
     
     var movies: [MovieViewData] {
@@ -27,6 +35,20 @@ final class MoviesListViewModel: ObservableObject {
                           releaseDate: $0.releaseDate,
                           imageURL: $0.imageURL,
                           overview: $0.overview)
+        }
+    }
+    
+    var navigationTitle: String {
+        Self.title(for: category).capitalized
+    }
+    
+    public static func title(for category: MovieCategory) -> String {
+        switch category {
+        case .nowPlaying: return "now playing"
+        case .topRated: return "top rated"
+        case .popular: return "popular"
+        case .upcoming: return "upcoming"
+        @unknown default: return "unknown"
         }
     }
 }

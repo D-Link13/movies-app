@@ -1,17 +1,18 @@
 import SwiftUI
-import Combine
 
 struct MovieListView: View {
     @ObservedObject var viewModel: MoviesListViewModel
-    var onSelect: ((MovieViewData) -> Void)?
     
     var body: some View {
-        List(viewModel.movies) { movie in
-            Button(action: {
-                onSelect?(movie)
-            }) {
+        NavigationView {
+            List(viewModel.movies) { movie in
                 MovieListCell(movie: movie)
+                    .background(
+                        NavigationLink("", destination: MovieDetailsView(overview: movie.overview)).opacity(0)
+                    )
             }
+            .navigationTitle(viewModel.navigationTitle)
+            .navigationBarTitleDisplayMode(.inline)
         }
         .listStyle(.plain)
         .onAppear {
@@ -25,5 +26,12 @@ struct MovieListView: View {
 }
 
 #Preview {
-    MovieListView(viewModel: MoviesListViewModel(moviesLoader: Just([]).setFailureType(to: Error.self).eraseToAnyPublisher()), onSelect: { _ in })
+    let viewModel = MoviesListViewModel(
+        category: .nowPlaying,
+        moviesLoader: FakeLoader())
+    return MovieListView(viewModel: viewModel)
+}
+
+private class FakeLoader: MovieListLoader {
+    func loadMovies(completion: @escaping (MovieListLoader.Result) -> Void) {}
 }
