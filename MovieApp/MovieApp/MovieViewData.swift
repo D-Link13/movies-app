@@ -1,6 +1,6 @@
 import Foundation
 
-struct MovieViewData: Identifiable {
+struct MovieViewData: Identifiable, Hashable {
     let id: UUID
     let title: String
     let releaseDate: Date
