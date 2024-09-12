@@ -1,4 +1,5 @@
 import SwiftUI
+import MoviesList
 import Combine
 
 struct MovieListView: View {
@@ -25,5 +26,14 @@ struct MovieListView: View {
 }
 
 #Preview {
-    MovieListView(viewModel: MoviesListViewModel(moviesLoader: Just([]).setFailureType(to: Error.self).eraseToAnyPublisher()), onSelect: { _ in })
+    let movie = Movie(
+        title: "title",
+        releaseDate: .now,
+        imageURL: URL(string: "https://image.tmdb.org/t/p/w185/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg")!,
+        overview: "overview")
+    let model = MoviesListViewModel(
+        moviesLoader: Just([movie])
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher())
+    return MovieListView(viewModel: model, onSelect: { _ in })
 }
