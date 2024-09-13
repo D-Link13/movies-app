@@ -9,12 +9,13 @@ final class NextViewModel: ObservableObject {
 }
 
 struct NextView<Content: View>: View {
-    @ObservedObject var viewModel: NextViewModel
+//    @ObservedObject var viewModel: NextViewModel
+    @Binding var isActive: Bool
     let content: () -> Content
     
     var body: some View {
         NavigationLink(
-            isActive: $viewModel.isActive,
+            isActive: $isActive,
             destination: { content() },
             label: { EmptyView() }
         )

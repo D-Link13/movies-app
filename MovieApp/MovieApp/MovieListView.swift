@@ -2,11 +2,12 @@ import SwiftUI
 import Combine
 
 struct MovieListView: View {
-    @ObservedObject var viewModel: MoviesListViewModel
+    @Binding var movies: [MovieViewData]
     var onSelect: ((MovieViewData) -> Void)?
+    var loadMovies: (() -> ())?
     
     var body: some View {
-        List(viewModel.movies) { movie in
+        List(movies) { movie in
             Button(action: {
                 onSelect?(movie)
             }) {
@@ -15,15 +16,22 @@ struct MovieListView: View {
         }
         .listStyle(.plain)
         .onAppear {
-            guard viewModel.movies.isEmpty else { return }
-            viewModel.loadMovies()
+            guard movies.isEmpty else { return }
+            loadMovies?()
         }
         .refreshable {
-            viewModel.loadMovies()
+            loadMovies?()
         }
     }
 }
 
 #Preview {
-    MovieListView(viewModel: MoviesListViewModel(moviesLoader: Just([]).setFailureType(to: Error.self).eraseToAnyPublisher()), onSelect: { _ in })
+    let movies = [
+        MovieViewData(
+            title: "title",
+            releaseDate: .now,
+            imageURL: URL(string: "https://image.tmdb.org/t/p/w185/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg")!,
+            overview: "overview")
+    ]
+    MovieListView(movies: .constant(movies))
 }
