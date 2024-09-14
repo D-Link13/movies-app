@@ -2,33 +2,15 @@ import SwiftUI
 import Combine
 import MoviesList
 
-fileprivate let httpClient: HTTPClient = {
-    URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
-}()
-
-private let baseURL = URL(string: "https://api.themoviedb.org/3/movie")!
-private let testServerAPIToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YzI4N2M0NjIxZmU4YWUyMzU0MWQ1YmQ1YzdkMTRlZiIsInN1YiI6IjVjYzc4ZTY2YzNhMzY4NGIzNDg1NTE0MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YYs3kLqimXVUcRzzg8-kDLHp8y9hLf1UuEVx0XSYFG0"
-
-fileprivate func makeRemoteMoviesLoader(for category: MoviesList.MovieCategory) -> AnyPublisher<[Movie], Error> {
-    var request = MoviesEndpoint.get(category: category).request(baseURL: baseURL)
-    request.allHTTPHeaderFields = [
-        "accept": "application/json",
-        "Authorization": "Bearer \(testServerAPIToken)"
-    ]
-    
-    return httpClient
-        .getPublisher(from: request)
-        .tryMap(MoviesListMapper.map)
-        .eraseToAnyPublisher()
-}
-
 @main
 struct MovieAppApp: App {
     
-    @StateObject var nowPlayingListModel = MoviesListViewModel(moviesLoader: makeRemoteMoviesLoader(for: .nowPlaying))
-    @StateObject var popularListModel = MoviesListViewModel(moviesLoader: makeRemoteMoviesLoader(for: .popular))
-    @StateObject var topRatedListModel = MoviesListViewModel(moviesLoader: makeRemoteMoviesLoader(for: .topRated))
-    @StateObject var upcomingListModel = MoviesListViewModel(moviesLoader: makeRemoteMoviesLoader(for: .upcoming))
+    private let httpClient: HTTPClient
+    
+    @StateObject var nowPlayingListModel: MoviesListViewModel
+    @StateObject var popularListModel: MoviesListViewModel
+    @StateObject var topRatedListModel: MoviesListViewModel
+    @StateObject var upcomingListModel: MoviesListViewModel
     
     @StateObject var nowPlayingDetailsModel = MovieDetailsViewModel()
     @StateObject var popularDetailsModel = MovieDetailsViewModel()
@@ -39,6 +21,16 @@ struct MovieAppApp: App {
     @StateObject var popularNextModel = NextViewModel()
     @StateObject var topRatedNextModel = NextViewModel()
     @StateObject var upcomingNextModel = NextViewModel()
+    
+    init() {
+        let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+        self.httpClient = client
+        
+        _nowPlayingListModel = .init(wrappedValue: .init(moviesLoader: Self.makeRemoteMoviesLoader(with: client, for: .nowPlaying)))
+        _popularListModel = .init(wrappedValue: .init(moviesLoader: Self.makeRemoteMoviesLoader(with: client, for: .popular)))
+        _topRatedListModel = .init(wrappedValue: .init(moviesLoader: Self.makeRemoteMoviesLoader(with: client, for: .topRated)))
+        _upcomingListModel = .init(wrappedValue: .init(moviesLoader: Self.makeRemoteMoviesLoader(with: client, for: .upcoming)))
+    }
     
     var body: some Scene {
         WindowGroup {
@@ -98,6 +90,26 @@ private extension MovieAppApp {
         }
         .navigationTitle(MovieCategoryTitlePresenter.title(for: category))
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+}
+
+private extension MovieAppApp {
+    
+    private static let baseURL = URL(string: "https://api.themoviedb.org/3/movie")!
+    private static let testServerAPIToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YzI4N2M0NjIxZmU4YWUyMzU0MWQ1YmQ1YzdkMTRlZiIsInN1YiI6IjVjYzc4ZTY2YzNhMzY4NGIzNDg1NTE0MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YYs3kLqimXVUcRzzg8-kDLHp8y9hLf1UuEVx0XSYFG0"
+
+    private static func makeRemoteMoviesLoader(with httpClient: HTTPClient, for category: MoviesList.MovieCategory) -> AnyPublisher<[Movie], Error> {
+        var request = MoviesEndpoint.get(category: category).request(baseURL: baseURL)
+        request.allHTTPHeaderFields = [
+            "accept": "application/json",
+            "Authorization": "Bearer \(testServerAPIToken)"
+        ]
+        
+        return httpClient
+            .getPublisher(from: request)
+            .tryMap(MoviesListMapper.map)
+            .eraseToAnyPublisher()
     }
     
 }
